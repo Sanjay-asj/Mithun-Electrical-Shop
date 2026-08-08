@@ -1,0 +1,27 @@
+/* src/index.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F3F4F6; /* Light gray background */
+    color: #1F2937; /* Dark gray text */
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #FF6F00; /* Vibrant orange for links */
+}
+
+button {
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}

@@ -1,0 +1,234 @@
+/* Navbara Styles */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --accent-primary: #6366f1;
+  --accent-hover: #4f46e5;
+  --border-color: #e2e8f0;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --transition: all 0.2s ease;
+  --navbar-height: 60px;
+}
+
+.navbara {
+  background-color: var(--bg-primary);
+  width: 250px;
+  height: 100vh;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.navbara-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.navbara-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-primary);
+}
+
+.navbara-brand svg {
+  color: var(--accent-primary);
+}
+
+.navbara-brand span {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.navbara-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: var(--transition);
+}
+
+.navbara-toggle:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.navbara-menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbara-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.navbara-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: var(--transition);
+}
+
+.navbara-link:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.navbara-link.active {
+  background-color: var(--accent-primary);
+  color: white;
+}
+
+.navbara-link svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.navbara-link span {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.navbara-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+/* Hover effects */
+.navbara-link:hover svg {
+  color: var(--accent-primary);
+}
+
+.navbara-footer .navbara-link:last-child:hover {
+  background-color: #fee2e2;
+  color: var(--danger);
+}
+
+.navbara-footer .navbara-link:last-child:hover svg {
+  color: var(--danger);
+}
+
+/* Active link styles */
+.navbara-link.active svg {
+  color: white;
+}
+
+/* Focus styles for accessibility */
+.navbara-link:focus,
+.navbara-toggle:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbara {
+    width: 100%;
+    height: var(--navbar-height);
+    padding: 0.75rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+  }
+
+  .navbara-header {
+    margin-bottom: 0;
+  }
+
+  .navbara-toggle {
+    display: block;
+  }
+
+  .navbara-menu {
+    display: none;
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--navbar-height));
+    background-color: var(--bg-primary);
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .navbara-menu.open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .navbara-brand span {
+    font-size: 1.1rem;
+  }
+
+  .navbara-link {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .navbara-link span {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbara {
+    padding: 0.5rem;
+    height: 50px;
+  }
+
+  .navbara-brand span {
+    font-size: 1rem;
+  }
+
+  .navbara-link {
+    padding: 0.5rem;
+  }
+
+  .navbara-link span {
+    font-size: 0.75rem;
+  }
+
+  .navbara-link svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .navbara-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+}
